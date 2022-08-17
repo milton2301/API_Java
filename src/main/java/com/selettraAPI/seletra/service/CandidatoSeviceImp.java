@@ -1,4 +1,3 @@
-
 package com.selettraAPI.seletra.service;
 
 /**
@@ -55,7 +54,7 @@ public class CandidatoSeviceImp implements CandidatoService {
 
   @Override
   public List<Candidato> procurarCandidatosContent(Candidato candidato) {
-    return candidatoRepository.findByContents(candidato.getNome());
+    return candidatoRepository.findByContents(candidato.getNome(), candidato.getNacionalidade());
   }  
   
   @Override
@@ -87,6 +86,7 @@ public class CandidatoSeviceImp implements CandidatoService {
     oldcandidato.setNome(candidato.getNome());
     oldcandidato.setCpf(candidato.getCpf());
     oldcandidato.setEstadocivil(candidato.getEstadocivil());
+    oldcandidato.setNacionalidade(candidato.getNacionalidade());
     oldcandidato.setIdade(candidato.getIdade());
     oldcandidato.setRg(candidato.getRg());
     oldcandidato.setAtivo(true);

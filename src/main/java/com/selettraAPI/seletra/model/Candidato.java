@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,25 +25,35 @@ public class Candidato {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "nome", nullable = true, updatable = true)
     @JsonProperty("")
     private String nome;
+    @Column(name = "idade", nullable = true, updatable = true)
     @JsonProperty("")
     private Long idade;
+    @Column(name = "cpf", nullable = true, updatable = true)
     @JsonProperty("")
     private String cpf;
+    @Column(name = "rg", nullable = true, updatable = true)
     @JsonProperty("")
-    private String rg;   
+    private String rg;
+    @Column(name = "nacionalidade", nullable = true, updatable = true)
     @JsonProperty("")
-    private String nacionalidade; 
+    private String nacionalidade;
+    @Column(name = "estadocivil", nullable = true, updatable = true)
     @JsonProperty("")
     private String estadocivil;
+    @Column(name = "ativo", nullable = true, updatable = true)
     @JsonProperty("")
     private Boolean ativo;
     @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "dtcad", nullable = true, updatable = true)
     @JsonProperty("")
     private Date dtcad;
+    @Column(name = "usercad", nullable = true, updatable = true)
     @JsonProperty("")
     private String usercad;
     

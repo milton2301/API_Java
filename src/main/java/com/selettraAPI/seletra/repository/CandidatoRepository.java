@@ -29,7 +29,7 @@ public interface CandidatoRepository extends JpaRepository<Candidato, Id> {
   @Query(value = "SELECT * FROM candidatos Candidatos WHERE Candidatos.id = ?1 order by Candidatos.id", nativeQuery = true)
   Optional<Candidato> findByCreat(Long id);
   
-  @Query(value = "SELECT * FROM candidatos Candidatos WHERE Candidatos.ativo = true and (Candidatos.nome like %?1%) order by Candidatos.id", nativeQuery = true)
-  List<Candidato> findByContents(String nome);
+  @Query(value = "SELECT * FROM candidatos Candidatos WHERE Candidatos.ativo = true and (Candidatos.nome like %?1% or Candidatos.nacionalidade like %?2%) order by Candidatos.id", nativeQuery = true)
+  List<Candidato> findByContents(String nome, String nacionalidade);
   
 }

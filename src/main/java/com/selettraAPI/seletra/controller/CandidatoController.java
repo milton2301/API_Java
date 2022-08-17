@@ -69,6 +69,5 @@ public static final String PERMISSION = "hasAnyAuthority('aaf_permission::','aaf
   @PostMapping({"/candidatos/procurar"})
   public List<Candidato> procurarRespostasContent(@RequestBody Candidato candidato) {
     return candidatoService.procurarCandidatosContent(candidato);
-  }
-  
+  }  
 }
