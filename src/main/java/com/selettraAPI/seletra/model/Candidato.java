@@ -33,6 +33,9 @@ public class Candidato {
     @Column(name = "idade", nullable = true, updatable = true)
     @JsonProperty("")
     private Long idade;
+    @Column(name = "sexo", nullable = true, updatable = true)
+    @JsonProperty("")
+    private String sexo;
     @Column(name = "cpf", nullable = true, updatable = true)
     @JsonProperty("")
     private String cpf;
@@ -75,6 +78,14 @@ public class Candidato {
 
     public void setIdade(Long idade) {
         this.idade = idade;
+    }
+    
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getCpf() {

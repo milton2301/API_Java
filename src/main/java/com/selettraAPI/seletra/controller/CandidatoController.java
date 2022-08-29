@@ -31,8 +31,8 @@ public class CandidatoController {
 @Autowired
 CandidatoService candidatoService;
 @Autowired
-public static final String PERMISSION = "hasAnyAuthority('aaf_permission::','aaf_permission:create:*')";
-  
+public static final String PERMISSION = "hasAnyAuthority('sell::','sell:create:*')";
+
   @CrossOrigin
   @PostMapping({"/candidatos"})
   public Candidato novoCandidatos(@RequestBody Candidato candidato, HttpServletRequest request) {

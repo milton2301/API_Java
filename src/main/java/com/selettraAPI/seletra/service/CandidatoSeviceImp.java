@@ -88,6 +88,7 @@ public class CandidatoSeviceImp implements CandidatoService {
     oldcandidato.setEstadocivil(candidato.getEstadocivil());
     oldcandidato.setNacionalidade(candidato.getNacionalidade());
     oldcandidato.setIdade(candidato.getIdade());
+    oldcandidato.setSexo(candidato.getSexo());
     oldcandidato.setRg(candidato.getRg());
     oldcandidato.setAtivo(true);
     candidato = (Candidato)candidatoRepository.save(oldcandidato);
