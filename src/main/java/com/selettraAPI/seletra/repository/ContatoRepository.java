@@ -29,7 +29,7 @@ public interface ContatoRepository extends JpaRepository<Contato, Id> {
   @Query(value = "SELECT * FROM contatos Contato WHERE Contato.id = ?1 order by Contato.id", nativeQuery = true)
   Optional<Contato> findByCreat(Long id);
   
-  @Query(value = "SELECT * FROM contatos Contato WHERE Contato.ativo = true and Contato.idcandidato order by Contato.id", nativeQuery = true)
+  @Query(value = "SELECT * FROM contatos Contato WHERE Contato.ativo = true and Contato.idcandidato = ?1 order by Contato.id", nativeQuery = true)
   List<Contato> findByContents(Long idcandidato);
   
 }

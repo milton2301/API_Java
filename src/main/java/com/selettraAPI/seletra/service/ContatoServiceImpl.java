@@ -81,9 +81,8 @@ public class ContatoServiceImpl implements ContatoService {
     
     Contato oldcontato = (Contato)contatoRepository.findByCreat(contato.getId()).get();
     oldcontato.setIdcandidato(contato.getIdcandidato());
-    oldcontato.setTelefone(contato.getTelefone());
-    oldcontato.setEmail(contato.getEmail());
-    oldcontato.setWhatsapp(contato.getWhatsapp());
+    oldcontato.setTipo(contato.getTipo());
+    oldcontato.setValor(contato.getValor());
     oldcontato.setAtivo(true);
     contato = (Contato)contatoRepository.save(oldcontato);
     if (contato != null) {

@@ -30,15 +30,12 @@ public class Contato {
     @Column(name = "idcandidato", nullable = true, updatable = true)
     @JsonProperty("")
     private Long idcandidato;
-    @Column(name = "telefone", nullable = true, updatable = true)
+    @Column(name = "tipo", nullable = true, updatable = true)
     @JsonProperty("")
-    private String telefone;
-    @Column(name = "email", nullable = true, updatable = true)
+    private String tipo;
+    @Column(name = "valor", nullable = true, updatable = true)
     @JsonProperty("")
-    private String email;
-    @Column(name = "whatsapp", nullable = true, updatable = true)
-    @JsonProperty("")
-    private String whatsapp;
+    private String valor;
     @Column(name = "ativo", nullable = true, updatable = true)
     @JsonProperty("")
     private Boolean ativo;
@@ -67,29 +64,22 @@ public class Contato {
         this.idcandidato = idcandidato;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public String getEmail() {
-        return email;
+    public String getValor() {
+        return valor;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setValor(String valor) {
+        this.valor = valor;
     }
 
-    public String getWhatsapp() {
-        return whatsapp;
-    }
-
-    public void setWhatsapp(String whatsapp) {
-        this.whatsapp = whatsapp;
-    }
 
     public Boolean getAtivo() {
         return ativo;
