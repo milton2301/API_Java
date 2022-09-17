@@ -10,10 +10,11 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 
 import com.selettraAPI.seletra.model.Anexos;
+import org.springframework.core.io.Resource;
 
 public interface AnexosService {
 
-  Anexos novo(Anexos anexos, HttpServletRequest request); 
+  Anexos novo(Anexos anexos);
   
   Boolean salvar(Anexos anexos); 
 
@@ -26,4 +27,7 @@ public interface AnexosService {
   Optional<Anexos> procurarAnexoss(Long id);
  
   List<Anexos> procurarAnexossContent(Anexos anexos);
+
+  Resource procurarAnexosDowload(Long id);
+
 }

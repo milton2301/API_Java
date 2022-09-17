@@ -14,6 +14,13 @@ import org.springframework.stereotype.Service;
 
 import com.selettraAPI.seletra.model.Anexos;
 import com.selettraAPI.seletra.repository.AnexosRepository;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Objects;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 
 
 @Service
@@ -23,7 +30,7 @@ public class AnexosServiceImp implements AnexosService {
   AnexosRepository anexosRepository;
 
   @Override
-  public Anexos novo(Anexos anexos, HttpServletRequest request) {
+  public Anexos novo(Anexos anexos) {
     var hoje = new Date();
     Date datehoje = hoje;
     anexos.setUsercad(anexos.getUsercad());
@@ -37,6 +44,19 @@ public class AnexosServiceImp implements AnexosService {
     }
   }
 
+  @Override
+  public Resource procurarAnexosDowload(Long id) {    
+    Anexos anexos = anexosRepository.findById(id).get();
+    if (Objects.nonNull(anexos)) {
+      String nome = new String(anexos.getNomeapi());
+      String[] nomeTemp = nome.split("\\.");
+      String filetype = nomeTemp[nomeTemp.length - 1];
+      Resource resource = extrairArquivos(anexos.getNomeapi(),0);
+      return resource;
+    }    
+    return null;    
+  }
+  
   @Override
   public List<Anexos> listarAnexoss() {
     return anexosRepository.findAll();
@@ -80,7 +100,7 @@ public class AnexosServiceImp implements AnexosService {
     }
     
     Anexos oldanexos = (Anexos)anexosRepository.findByCreat(anexos.getId()).get();
-    oldanexos.setNomeapi(anexos.getNomeapi());
+    oldanexos.setIdcandidato(anexos.getIdcandidato());
     oldanexos.setAtivo(true);
     anexos = (Anexos)anexosRepository.save(oldanexos);
     if (anexos != null) {
@@ -89,4 +109,35 @@ public class AnexosServiceImp implements AnexosService {
       return false;
     }
   }
+  
+  public Resource extrairArquivos(String fileName, int index) {
+    try {
+      Resource resource = null;
+      String[] fileFolder = {"Files"};
+      String serverFolder = System.getProperty("user.dir") + File.separator + "FilesPath";  
+      File rootFolder = new File(serverFolder);
+      String[] fileList = rootFolder.list();
+      if (fileList == null || fileList.length == 0) {          
+        return null;
+      } else {        
+        for (int i = 0; i <= fileList.length - 1; i++) {
+          if (Objects.equals(fileFolder[index], fileList[i])) {            
+            if (fileName != "") {              
+              Path file = Paths.get(rootFolder + File.separator + fileFolder[index] + File.separator + fileName);              
+              resource = (Resource) new UrlResource(file.toUri());
+              if (resource != null ) {
+                return resource;
+              } else {
+                return null;
+              }            
+            }
+          }
+        }        
+        return resource;      
+      } 
+    } catch (MalformedURLException ex) {
+      throw new RuntimeException("Error: " + ex.getMessage());
+    }
+  }
+  
 }
