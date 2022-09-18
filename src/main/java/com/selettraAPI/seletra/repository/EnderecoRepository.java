@@ -29,7 +29,7 @@ public interface EnderecoRepository extends JpaRepository<Endereco, Id> {
   @Query(value = "SELECT * FROM enderecos Endereco WHERE Endereco.id = ?1 order by Endereco.id", nativeQuery = true)
   Optional<Endereco> findByCreat(Long id);
   
-  @Query(value = "SELECT * FROM enderecos Endereco WHERE Endereco.ativo = true and Endereco.idcandidato order by Endereco.id", nativeQuery = true)
+  @Query(value = "SELECT * FROM enderecos Endereco WHERE Endereco.ativo = true and Endereco.idcandidato = ?1 order by Endereco.id", nativeQuery = true)
   List<Endereco> findByContents(Long idcandidato);
   
 }

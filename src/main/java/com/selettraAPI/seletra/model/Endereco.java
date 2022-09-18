@@ -59,7 +59,30 @@ public class Endereco {
     @Column(name = "usercad", nullable = true, updatable = true)
     @JsonProperty("")
     private String usercad;
+    @Column(name = "numero", nullable = true, updatable = true)
+    @JsonProperty("")
+    private String numero;
+    @Column(name = "complemento", nullable = true, updatable = true)
+    @JsonProperty("")
+    private String complemento;
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    
+    
     public Date getDtcad() {
         return dtcad;
     }

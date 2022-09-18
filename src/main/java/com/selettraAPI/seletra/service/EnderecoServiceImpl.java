@@ -83,10 +83,12 @@ public class EnderecoServiceImpl implements EnderecoService {
     oldendereco.setIdcandidato(endereco.getIdcandidato());
     oldendereco.setCep(endereco.getCep());
     oldendereco.setRua(endereco.getRua());
+    oldendereco.setNumero(endereco.getNumero());
     oldendereco.setBairro(endereco.getBairro());
     oldendereco.setCidade(endereco.getCidade());
     oldendereco.setEstado(endereco.getEstado());
     oldendereco.setPais(endereco.getPais());
+    oldendereco.setComplemento(endereco.getComplemento());
     oldendereco.setAtivo(true);
     endereco = (Endereco)enderecoRepository.save(oldendereco);
     if (endereco != null) {
