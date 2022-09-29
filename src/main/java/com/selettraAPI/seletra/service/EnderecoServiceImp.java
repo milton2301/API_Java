@@ -17,7 +17,7 @@ import com.selettraAPI.seletra.repository.EnderecoRepository;
 
 
 @Service
-public class EnderecoServiceImpl implements EnderecoService {
+public class EnderecoServiceImp implements EnderecoService {
 
   @Autowired
   EnderecoRepository enderecoRepository;

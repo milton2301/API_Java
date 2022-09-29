@@ -17,7 +17,7 @@ import com.selettraAPI.seletra.repository.ContatoRepository;
 
 
 @Service
-public class ContatoServiceImpl implements ContatoService {
+public class ContatoServiceImp implements ContatoService {
 
   @Autowired
   ContatoRepository contatoRepository;
