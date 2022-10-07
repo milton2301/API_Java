@@ -84,6 +84,10 @@ public class CandidaturasServiceImp implements CandidaturasService {
     oldcandidaturas.setIdcandidato(candidaturas.getIdcandidato());
     oldcandidaturas.setIdvaga(candidaturas.getIdvaga());
     oldcandidaturas.setAprovado(candidaturas.getAprovado());
+    oldcandidaturas.setObservacoes(candidaturas.getObservacoes());
+    oldcandidaturas.setStatus(candidaturas.getStatus());
+    oldcandidaturas.setNomecandidato(candidaturas.getNomecandidato());
+    oldcandidaturas.setNomevaga(candidaturas.getNomevaga());
     oldcandidaturas.setAtivo(true);
     candidaturas = (Candidaturas)candidaturasRepository.save(oldcandidaturas);
     if (candidaturas != null) {

@@ -20,8 +20,8 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Table(name ="candidaturas")
-public class Candidaturas {
+@Table(name ="candidaturasobservacoes")
+public class CandidaturasObservacoes {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,54 +44,10 @@ public class Candidaturas {
     @Column(name = "idvaga", nullable = true, updatable = true)
     @JsonProperty("")
     private Long idvaga;
-    @Column(name = "aprovado", nullable = true, updatable = true)
+    @Column(name = "descricao", nullable = true, updatable = true)
     @JsonProperty("")
-    private Boolean aprovado;
-    @Column(name = "observacoes", nullable = true, updatable = true)
-    @JsonProperty("")
-    private String observacoes;
-    @Column(name = "status", nullable = true, updatable = true)
-    @JsonProperty("")
-    private String status;
-    @Column(name = "nomecandidato", nullable = true, updatable = true)
-    @JsonProperty("")
-    private String nomecandidato;
-    @Column(name = "nomevaga", nullable = true, updatable = true)
-    @JsonProperty("")
-    private String nomevaga;
+    private String descricao;
 
-    public String getNomecandidato() {
-        return nomecandidato;
-    }
-
-    public void setNomecandidato(String nomecandidato) {
-        this.nomecandidato = nomecandidato;
-    }
-
-    public String getNomevaga() {
-        return nomevaga;
-    }
-
-    public void setNomevaga(String nomevaga) {
-        this.nomevaga = nomevaga;
-    }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
     public Long getId() {
         return id;
     }
@@ -140,12 +96,12 @@ public class Candidaturas {
         this.idvaga = idvaga;
     }
 
-    public Boolean getAprovado() {
-        return aprovado;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setAprovado(Boolean aprovado) {
-        this.aprovado = aprovado;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
-         
+
 }
