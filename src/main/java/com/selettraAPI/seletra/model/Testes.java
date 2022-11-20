@@ -20,13 +20,16 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Table(name ="candidaturasobservacoes")
-public class CandidaturasObservacoes {
+@Table(name ="testes")
+public class Testes {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(name = "descricao", nullable = true, updatable = true)
+    @JsonProperty("")
+    private String descricao;
     @Column(name = "ativo", nullable = true, updatable = true)
     @JsonProperty("")
     private Boolean ativo;
@@ -38,33 +41,22 @@ public class CandidaturasObservacoes {
     @Column(name = "usercad", nullable = true, updatable = true)
     @JsonProperty("")
     private String usercad;
-    @Column(name = "idcandidato", nullable = true, updatable = true)
-    @JsonProperty("")
-    private Long idcandidato;
-    @Column(name = "idvaga", nullable = true, updatable = true)
-    @JsonProperty("")
-    private Long idvaga;
-    @Column(name = "idcandidatura", nullable = true, updatable = true)
-    @JsonProperty("")
-    private Long idcandidatura;
-    @Column(name = "descricao", nullable = true, updatable = true)
-    @JsonProperty("")
-    private String descricao;
 
-    public Long getIdcandidatura() {
-        return idcandidatura;
-    }
-
-    public void setIdcandidatura(Long idcandidatura) {
-        this.idcandidatura = idcandidatura;
-    }
-
+    
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Boolean getAtivo() {
@@ -90,29 +82,4 @@ public class CandidaturasObservacoes {
     public void setUsercad(String usercad) {
         this.usercad = usercad;
     }
-
-    public Long getIdcandidato() {
-        return idcandidato;
-    }
-
-    public void setIdcandidato(Long idcandidato) {
-        this.idcandidato = idcandidato;
-    }
-
-    public Long getIdvaga() {
-        return idvaga;
-    }
-
-    public void setIdvaga(Long idvaga) {
-        this.idvaga = idvaga;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
 }

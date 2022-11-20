@@ -54,7 +54,7 @@ public class CandidaturasObservacoesServiceImp implements CandidaturasObservacoe
 
   @Override
   public List<CandidaturasObservacoes> procurarCandidaturasObservacoessContent(CandidaturasObservacoes candidaturas) {
-    return candidaturasRepository.findByContents(candidaturas.getIdcandidato(), candidaturas.getIdvaga());
+    return candidaturasRepository.findByContents(candidaturas.getIdcandidato(), candidaturas.getIdcandidatura());
   }  
   
   @Override
@@ -81,7 +81,7 @@ public class CandidaturasObservacoesServiceImp implements CandidaturasObservacoe
     
     CandidaturasObservacoes oldcandidaturas = (CandidaturasObservacoes)candidaturasRepository.findByCreat(candidaturas.getId()).get();
     oldcandidaturas.setIdcandidato(candidaturas.getIdcandidato());
-    oldcandidaturas.setIdcandidato(candidaturas.getIdcandidato());
+    oldcandidaturas.setIdcandidatura(candidaturas.getIdcandidatura());
     oldcandidaturas.setIdvaga(candidaturas.getIdvaga());
     oldcandidaturas.setDescricao(candidaturas.getDescricao());
     oldcandidaturas.setAtivo(true);

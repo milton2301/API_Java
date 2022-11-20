@@ -30,7 +30,19 @@ public class VagasAbertas {
     @Column(name = "descricao", nullable = true, updatable = true)
     @JsonProperty("")
     private String descricao;
+    @Column(name = "ativo", nullable = true, updatable = true)
+    @JsonProperty("")
+    private Boolean ativo;
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "dtcad", nullable = true, updatable = true)
+    @JsonProperty("")
+    private Date dtcad;
+    @Column(name = "usercad", nullable = true, updatable = true)
+    @JsonProperty("")
+    private String usercad;
 
+    
     public Long getId() {
         return id;
     }
@@ -70,18 +82,6 @@ public class VagasAbertas {
     public void setUsercad(String usercad) {
         this.usercad = usercad;
     }
-    @Column(name = "ativo", nullable = true, updatable = true)
-    @JsonProperty("")
-    private Boolean ativo;
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    @Column(name = "dtcad", nullable = true, updatable = true)
-    @JsonProperty("")
-    private Date dtcad;
-    @Column(name = "usercad", nullable = true, updatable = true)
-    @JsonProperty("")
-    private String usercad;
-
  
          
 }

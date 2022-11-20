@@ -29,7 +29,7 @@ public interface CandidaturasObservacoesRepository extends JpaRepository<Candida
   @Query(value = "SELECT * FROM candidaturasobservacoes CandidaturasObservacoes WHERE CandidaturasObservacoes.id = ?1 order by CandidaturasObservacoes.id", nativeQuery = true)
   Optional<CandidaturasObservacoes> findByCreat(Long id);
   
-  @Query(value = "SELECT * FROM candidaturasobservacoes CandidaturasObservacoes WHERE CandidaturasObservacoes.ativo = true and CandidaturasObservacoes.idcandidato = ?1 and CandidaturasObservacoes.idvaga = ?2 order by CandidaturasObservacoes.id", nativeQuery = true)
-  List<CandidaturasObservacoes> findByContents(Long idcandidato, Long idvaga);
+  @Query(value = "SELECT * FROM candidaturasobservacoes CandidaturasObservacoes WHERE CandidaturasObservacoes.ativo = true and CandidaturasObservacoes.idcandidato = ?1 and CandidaturasObservacoes.idcandidatura = ?2 order by CandidaturasObservacoes.id", nativeQuery = true)
+  List<CandidaturasObservacoes> findByContents(Long idcandidato, Long idcandidatura);
   
 }

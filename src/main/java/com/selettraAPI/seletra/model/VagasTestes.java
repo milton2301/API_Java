@@ -20,8 +20,8 @@ import javax.persistence.TemporalType;
  */
 
 @Entity
-@Table(name ="candidaturasobservacoes")
-public class CandidaturasObservacoes {
+@Table(name ="vagas_testes")
+public class VagasTestes {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,27 +38,59 @@ public class CandidaturasObservacoes {
     @Column(name = "usercad", nullable = true, updatable = true)
     @JsonProperty("")
     private String usercad;
-    @Column(name = "idcandidato", nullable = true, updatable = true)
-    @JsonProperty("")
-    private Long idcandidato;
-    @Column(name = "idvaga", nullable = true, updatable = true)
-    @JsonProperty("")
-    private Long idvaga;
     @Column(name = "idcandidatura", nullable = true, updatable = true)
     @JsonProperty("")
     private Long idcandidatura;
+    @Column(name = "idteste", nullable = true, updatable = true)
+    @JsonProperty("")
+    private Long idteste;
+    @Column(name = "idcandidato", nullable = true, updatable = true)
+    @JsonProperty("")
+    private Long idcandidato;
     @Column(name = "descricao", nullable = true, updatable = true)
     @JsonProperty("")
     private String descricao;
-
-    public Long getIdcandidatura() {
-        return idcandidatura;
+    @Column(name = "valor", nullable = true, updatable = true)
+    @JsonProperty("")
+    private String valor;
+    @Column(name = "valorcandidato", nullable = true, updatable = true)
+    @JsonProperty("")
+    private String valorcandidato;
+    
+    
+    public Long getIdcandidato() {
+        return idcandidato;
     }
 
-    public void setIdcandidatura(Long idcandidatura) {
-        this.idcandidatura = idcandidatura;
+    public String getDescricao() {
+        return descricao;
     }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public String getValorcandidato() {
+        return valorcandidato;
+    }
+
+    public void setValorcandidato(String valorcandidato) {
+        this.valorcandidato = valorcandidato;
+    }
+
+    public void setIdcandidato(Long idcandidato) {
+        this.idcandidato = idcandidato;
+    }
+    
+    
     public Long getId() {
         return id;
     }
@@ -91,28 +123,20 @@ public class CandidaturasObservacoes {
         this.usercad = usercad;
     }
 
-    public Long getIdcandidato() {
-        return idcandidato;
+    public Long getIdcandidatura() {
+        return idcandidatura;
     }
 
-    public void setIdcandidato(Long idcandidato) {
-        this.idcandidato = idcandidato;
+    public void setIdcandidatura(Long idcandidatura) {
+        this.idcandidatura = idcandidatura;
     }
 
-    public Long getIdvaga() {
-        return idvaga;
+    public Long getIdteste() {
+        return idteste;
     }
 
-    public void setIdvaga(Long idvaga) {
-        this.idvaga = idvaga;
+    public void setIdteste(Long idteste) {
+        this.idteste = idteste;
     }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
+    
 }
