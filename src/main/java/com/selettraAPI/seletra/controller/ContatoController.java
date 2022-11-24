@@ -68,6 +68,10 @@ public static final String PERMISSION = "hasAnyAuthority('sell::','sell:create:*
   @CrossOrigin
   @PostMapping({"/contatos/procurar"})
   public List<Contato> procurarContatosContent(@RequestBody Contato contato) {
-    return contatoService.procurarContatosContent(contato);
+    try{
+        return contatoService.procurarContatosContent(contato);
+    }catch(Exception e){
+        return null;
+    }
   }  
 }
