@@ -87,7 +87,28 @@ public class UsuariosServiceImp implements UsuariosService {
     Usuarios oldusuarios = (Usuarios)usuariosRepository.findByCreat(usuarios.getId()).get();
     oldusuarios.setEmail(usuarios.getEmail());
     oldusuarios.setNome(usuarios.getNome());
-    oldusuarios.setSenha(criptografar(usuarios.getSenha(),10));
+    //oldusuarios.setSenha(usuarios.getSenha());
+    oldusuarios.setSuspenso(usuarios.getSuspenso());
+    oldusuarios.setUsuario(usuarios.getUsuario());
+    oldusuarios.setAtivo(true);
+    usuarios = (Usuarios)usuariosRepository.save(oldusuarios);
+    if (usuarios != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+    @Override
+  public Boolean alterarSenha(Usuarios usuarios) {
+    if (usuarios == null) {
+      return false;
+    }
+    
+    Usuarios oldusuarios = (Usuarios)usuariosRepository.findByCreat(usuarios.getId()).get();
+    oldusuarios.setEmail(usuarios.getEmail());
+    oldusuarios.setNome(usuarios.getNome());
+    oldusuarios.setSenha(criptografar(usuarios.getSenha(), 10));
     oldusuarios.setSuspenso(usuarios.getSuspenso());
     oldusuarios.setUsuario(usuarios.getUsuario());
     oldusuarios.setAtivo(true);

@@ -18,7 +18,9 @@ public interface UsuariosService {
   Usuarios novo(Usuarios usuarios, HttpServletRequest request); 
   
   Boolean salvar(Usuarios usuarios); 
-
+  
+  Boolean alterarSenha(Usuarios usuarios);
+    
   List<Usuarios> listarUsuarioss();
 
   Optional<Usuarios> listarUsuariossId(Long id);

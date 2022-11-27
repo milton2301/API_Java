@@ -53,7 +53,18 @@ public class Usuarios {
     @Column(name = "email", nullable = true, updatable = true)
     @JsonProperty("")
     private String email;
+    @Column(name = "alterado", nullable = true, updatable = true)
+    @JsonProperty("")
+    private Boolean alterado;
 
+    public Boolean getAlterado() {
+        return alterado;
+    }
+
+    public void setAlterado(Boolean alterado) {
+        this.alterado = alterado;
+    }
+    
     public Long getId() {
         return id;
     }

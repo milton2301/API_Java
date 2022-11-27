@@ -51,7 +51,7 @@ public static final String PERMISSION = "hasAnyAuthority('sell::','sell:create:*
 
   
   @CrossOrigin
-  @GetMapping({"/usuarios"})
+    @GetMapping({"/usuarios"})
   public List<Usuarios> listarUsuarioss() {  
     return usuariosService.listarUsuarioss();
   } 
@@ -69,6 +69,12 @@ public static final String PERMISSION = "hasAnyAuthority('sell::','sell:create:*
     return usuariosService.salvar(usuarios);
   }
 
+  @CrossOrigin
+  @PostMapping({"/usuarios/{id}/alterarsenha"})
+  public Boolean alterarSenhaUsuarioss(@RequestBody Usuarios usuarios) {
+    return usuariosService.alterarSenha(usuarios);
+  }
+  
   @CrossOrigin
   @PostMapping({"/usuarios/{id}/excluir"})
   public Boolean excluirUsuarioss(@RequestBody Usuarios usuarios) {
